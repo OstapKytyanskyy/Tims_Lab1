@@ -9,6 +9,8 @@ namespace tims_calculation
 {
     class NumericalCharacteristics
     {
+
+        #region DoubleFunctions
         public static double Median(List<double> varRange)
         {
             //return varRange.Count / 2 == 0 ?
@@ -25,13 +27,7 @@ namespace tims_calculation
 
         public static double Mean(List<double> varRange)
         {
-            //double avarage = 0.0;
-            //foreach(KeyValuePair<double,int> keyValue in freqTable)
-            //{
-            //    avarage += (keyValue.Key * keyValue.Value); 
-            //}
-
-            //return avarage / freqTable.Sum(x => x.Value);
+           
             return Statistics.Mean(varRange);
         }
 
@@ -64,5 +60,22 @@ namespace tims_calculation
         {
             return Statistics.Kurtosis(varRange);
         }
+        #endregion
+
+        #region DecimalFunctions
+
+        public static List<decimal> Mode(Dictionary<decimal,int> Table)
+        {
+            return Table.Where(item => item.Value == Table.Values.Max()).Select(item=> item.Key).ToList();
+        }
+
+      //  public static double Mean (Dictionary<decimal,int> Table)
+        //{
+          //  int mean = 0;
+
+
+        //}
+
+        #endregion
     }
 }

@@ -16,19 +16,24 @@ namespace tims_calculation
             
             return Convert.ToDouble((rnd.NextDouble() * (upperBorder - lowerBorder) + lowerBorder).ToString("F1"));
         }
+        public static decimal GetRandomDecimal(double lowerBorder, double upperBorder)
+        {
+
+            return Convert.ToDecimal((rnd.NextDouble() * (upperBorder - lowerBorder) + lowerBorder).ToString("F1"));
+        }
         static void Main(string[] args)
         {
             
             Dictionary<double, double> points = new Dictionary<double, double> ();
-            //points.Add(1, 2);
-            //points.Add(3, 5);
-            //points.Add(4, 7);
-            //points.Add(8, 2);
-            //points.Add(9, 4);
+            points.Add(1, 2);
+            points.Add(3, 5);
+            points.Add(4, 7);
+            points.Add(8, 2);
+            points.Add(9, 4);
             //for (int i = 0; i < 10; i++)
             //{
             //    var randNum = GetRandom();
-            //    if(points.ContainsKey(randNum))
+            //    if (points.ContainsKey(randNum))
             //    {
             //        --i;
             //        continue;
@@ -36,27 +41,27 @@ namespace tims_calculation
             //    points.Add(randNum, GetRandom());
             //}
 
-            DiscreteVariable v = new DiscreteVariable();
+            //DiscreteVariable v = new DiscreteVariable();
+            List<double> ls = new List<double> {8,7,6,9,10,9,11,8,9,10,8,9,6,9,8,10,7,10,12,7 };
+            IntervalVariable inter = new IntervalVariable();
+            //inter.FindRozmah();
+            inter.GenerateSample(0,20,50);
+            inter.FormFrequencyTable();
 
 
-            List<double> row = new List<double> { 2, 2, 2, 3, 3, 3, 4,4,5,5,6,6,7,7,7,7,7,10,10,12,12,13,13,14,14,14,15,15,15,20};
-            foreach(var num in row.Distinct())
-            {
-                Console.WriteLine(Statistics.EmpiricalCDF(row, num));
-            }
-            v.GenerateSample(0, 2, 50);
+            //v.GenerateSample(0, 10, 5000000);
             //v.ShowVariationRange();
-            v.FormFrequencyTable();
-            v.EmpiricalCDF();
-            //Console.WriteLine(NumericalCharacteristics.VariationOfRow(row));
-            
-            //string x_axis = "";
-            //string y_axis ="";
+            //v.FormFrequencyTable();
+            //v.EmpiricalCDF();
+            //Console.WriteLine(NumericalCharacteristics.Mean(v.VariationRange));
 
-            //foreach(KeyValuePair<double,double> keyValue in points)
+            //string x_axis = "";
+            //string y_axis = "";
+
+            //foreach (KeyValuePair<double, double> keyValue in points)
             //{
-            //    x_axis +=  keyValue.Key.ToString("F") + "|";
-            //    y_axis += keyValue.Value.ToString("F") + "|" ;
+            //    x_axis += keyValue.Key.ToString("F") + "|";
+            //    y_axis += keyValue.Value.ToString("F") + "|";
             //}
             //RunPython(x_axis, y_axis);
             Console.ReadLine();
