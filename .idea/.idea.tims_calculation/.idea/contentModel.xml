@@ -7,7 +7,8 @@
       <e p="App.config" t="Include" />
       <e p="BaseVariable.cs" t="Include" />
       <e p="bin" t="ExcludeRecursive" />
-      <e p="DiscreteVariable.cs" t="Include" />
+      <e p="DescreteVariable.cs" t="Include" />
+      <e p="EnumVariables.cs" t="Include" />
       <e p="IntervalVariable.cs" t="Include" />
       <e p="Lib" t="Include">
         <e p="__future__.py" t="Include" />
@@ -592,6 +593,7 @@
         <e p="AssemblyInfo.cs" t="Include" />
       </e>
       <e p="tims_calculation.csproj" t="IncludeRecursive" />
+      <e p="UI.cs" t="Include" />
     </e>
   </component>
 </project>

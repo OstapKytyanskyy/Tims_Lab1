@@ -23,58 +23,76 @@ namespace tims_calculation
         }
         static void Main(string[] args)
         {
-            
-            Dictionary<double, double> points = new Dictionary<double, double> ();
-            points.Add(1, 2);
-            points.Add(3, 5);
-            points.Add(4, 7);
-            points.Add(8, 2);
-            points.Add(9, 4);
-            //for (int i = 0; i < 10; i++)
+
+
+
+            //Console.WriteLine("Choose Variable, type D for Descrete and I for Interval");
+            //var chose = Console.ReadKey();
+            //Console.WriteLine("If you want to read from file press F or press G if u want to do it randomly");
+            //var way = Console.ReadKey();
+            //if (chose.Key.ToString().ToUpper() == "D" && way.Key.ToString().ToUpper() == "F")
             //{
-            //    var randNum = GetRandom();
-            //    if (points.ContainsKey(randNum))
-            //    {
-            //        --i;
-            //        continue;
-            //    }
-            //    points.Add(randNum, GetRandom());
+            //    UI.StartUI(EnumVariables.DescretVariable,WayOfCreation.FromFile);
+            //}
+            //else
+            //{
+            //    UI.StartUI(EnumVariables.IntervalVariable,WayOfCreation.FromFile);
             //}
 
-            //DiscreteVariable v = new DiscreteVariable();
-            List<double> ls = new List<double> {8,7,6,9,10,9,11,8,9,10,8,9,6,9,8,10,7,10,12,7 };
-            IntervalVariable inter = new IntervalVariable();
-            //inter.FindRozmah();
-            inter.GenerateSample(0,20,50);
-            inter.FormFrequencyTable();
 
+             DescreteVariable v = new DescreteVariable();
+            //v.ReadFromFile();
+            //v.FromTableToVariationRange();
+            v.GenerateSample(0,5,10);
+            //List<double> ls = new List<double> {8,7,6,9,10,9,11,8,9,10,8,9,6,9,8,10,7,10,12,7 };
+            // IntervalVariable inter = new IntervalVariable();
+            //inter.ReadFromFile();
+            //inter.FindRozmah();
+            //inter.GenerateSample(0,20,50);
+            //inter.FormFrequencyTable();
+
+            // = NumericalCharacteristics.Mode(inter.FrequencyTable);
 
             //v.GenerateSample(0, 10, 5000000);
             //v.ShowVariationRange();
-            //v.FormFrequencyTable();
-            //v.EmpiricalCDF();
+            v.FormFrequencyTable();
+            v.EmpiricalCDF();
             //Console.WriteLine(NumericalCharacteristics.Mean(v.VariationRange));
 
-            //string x_axis = "";
-            //string y_axis = "";
+            string x_axis;
+            string y_axis;
+            string ecdf;
+            v.FormFrequencyTable();
+            v.PackParametrsToPython(out x_axis, out y_axis, out ecdf);
+            Console.WriteLine(x_axis);
+            Console.WriteLine(y_axis);
+            // EmpiricalCDF(new List<double> { 0.1, 0.2, 0.3, 0.5, 1.6, 1.8, 3.8, 3.9, 4.3, 4.3 });
+            Task.Run(() =>
+            {
+                RunPython(x_axis, y_axis, ecdf, @"C:\Users\ostap\PycharmProjects\tims\main.py");
 
-            //foreach (KeyValuePair<double, double> keyValue in points)
-            //{
-            //    x_axis += keyValue.Key.ToString("F") + "|";
-            //    y_axis += keyValue.Value.ToString("F") + "|";
-            //}
-            //RunPython(x_axis, y_axis);
+            });
+            Task.Run(() =>
+            {
+                RunPython(x_axis, y_axis, ecdf, @"C:\Users\ostap\PycharmProjects\tims\poligon.py");
+            });
+            Task.Run(() =>
+            {
+                RunPython(x_axis, y_axis, ecdf, @"C:\Users\ostap\PycharmProjects\tims\ECDF.py");
+            });
             Console.ReadLine();
         }
-        static void RunPython(string x_axis, string y_axis)
+
+        
+        static void RunPython(string x_axis, string y_axis,string ecdf,string Path)
         {
 
-            string progToRun = @"C:\Users\ostap\PycharmProjects\tims\main.py";
+            string progToRun = Path;
             char[] spliter = { '\r' };
            
             Process proc = new Process();
             proc.StartInfo.FileName = "python.exe";
-            proc.StartInfo.Arguments = string.Format("{0} {1} {2}", progToRun, x_axis, y_axis);
+            proc.StartInfo.Arguments = string.Format("{0} {1} {2} {3}", progToRun, x_axis, y_axis,ecdf);
 
             proc.StartInfo.RedirectStandardOutput = true;
             proc.StartInfo.UseShellExecute = false;

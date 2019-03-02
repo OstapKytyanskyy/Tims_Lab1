@@ -7,32 +7,54 @@ using System.Threading.Tasks;
 
 namespace tims_calculation
 {
-    class DiscreteVariable :  BaseVariable
+    class DescreteVariable :  BaseVariable
     {
-        public DiscreteVariable() : base()
+        
+        public DescreteVariable() : base()
         {
         }
 
 
-        public void GenerateSample(int begin, int end, int volume)
+
+        public override void ReadFromFile()
         {
-            base.GenerateSample(begin, end, volume);
+            var lines = System.IO.File.ReadAllLines(@"C:\Users\ostap\source\repos\tims_calculation\tims_calculation\TextFiles\DTF.txt");
+
+            var X_i = lines[0].Split(' ').Select(item => Convert.ToDouble(item)).ToList();
+            var M_i = lines[1].Split(' ').Select(item => Convert.ToInt32(item)).ToList();
+
+            FrequencyTable = X_i.Zip(M_i, (x, m) => new List<double> { x, m } ).ToDictionary((keyItem) => keyItem[0] ,(valueItem) => Convert.ToInt32(valueItem[1]));
+            FromTableToVariationRange();
         }
 
-        public void ShowVariantionRange()
+        public void PackParametrsToPython(out string x_axis,out string y_axis,out string ecdf)
         {
-            base.ShowVariationRange();
-        }
+            EmpiricalCDF();
+            x_axis = "";
+            y_axis = "";
+            ecdf = "";
+            foreach (KeyValuePair<double, int> keyValue in FrequencyTable)
+            {
+                x_axis += keyValue.Key.ToString("F") + "|";
+                y_axis += keyValue.Value.ToString("F") + "|";
 
+            }
+            foreach(var val in EmpCDFValues)
+            {
+                ecdf += val.ToString("F2") + "|";
+            }
+            
+
+        }
 
         public  void FormFrequencyTable()
         {
-            FrequencyTable = VariationRange.GroupBy(val => val).ToDictionary((keyitem) => keyitem.Key, (valueItem) => valueItem.Count());
+            FrequencyTable = VariationRange.GroupBy(val => val).ToDictionary((keyItem) => keyItem.Key, (valueItem) => valueItem.Count());
         }
 
         public  void EmpiricalCDF()
         {
-            foreach(var num in VariationRange.Distinct())
+            foreach(double num in VariationRange.Distinct())
             {
                 EmpCDFValues.Add(Statistics.EmpiricalCDF(VariationRange, num));
             }

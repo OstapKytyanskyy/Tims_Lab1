@@ -64,10 +64,7 @@ namespace tims_calculation
 
         #region DecimalFunctions
 
-        public static List<decimal> Mode(Dictionary<decimal,int> Table)
-        {
-            return Table.Where(item => item.Value == Table.Values.Max()).Select(item=> item.Key).ToList();
-        }
+       
 
       //  public static double Mean (Dictionary<decimal,int> Table)
         //{

@@ -6,30 +6,47 @@ using System.Threading.Tasks;
 
 namespace tims_calculation
 {
-    class IntervalVariable 
+    class IntervalVariable : BaseVariable 
     {
         public decimal Rozmah { get; private set; }
         public decimal AmountsOfInterval { get; private set; }
-        public Dictionary<decimal, int> FrequencyTable { get; set; } = new Dictionary<decimal, int>();
-        // public List<decimal> VariationRange { get; private set; } = new List<decimal>();
-        public List<double> VariationRange { get; private set; } = new List<double>();
         public List<List<decimal>> Intervals { get; set; } = new List<List<decimal>>();
-        public List<decimal> EmpCDFValues { get; private set; }
+        public List<List<double>> OriginIntervals { get; set; } = new List<List<double>>(); 
 
-        public void GenerateSample(double begin,double end,int volume)
+        public override void ReadFromFile()
         {
-            for (int i = 0; i < volume; i++)
-            {
-                VariationRange.Add(Programm.GetRandom(begin, end));
+            var lines = System.IO.File.ReadAllLines(@"C:\Users\ostap\source\repos\tims_calculation\tims_calculation\TextFiles\ITF.txt");
+            List<double> Z_i = new List<double>();
+            List<int> M_i ;
+            
+            var splited = lines[0].Split(',').Select(item => item.Split(' '));
+            foreach (var splt in splited)
+            { 
+                OriginIntervals.Add(new List<double> { Convert.ToDouble(splt[0]), Convert.ToDouble(splt[1]) });
             }
-            VariationRange.Sort();
-            FindRozmah();
-            FindAmountsOfIntervals();
+
+            foreach(var i in OriginIntervals)
+            {
+                Z_i.Add(Convert.ToDouble(((i[0] + i[1])/2).ToString("F2")));
+
+            }
+
+            M_i = lines[1].Split(' ').Select(item => Convert.ToInt32(item)).ToList();
+
+            FrequencyTable = Z_i.Zip(M_i, (k, v) => new List<double> { k,v} ).ToDictionary((key) => key[0], (value) => Convert.ToInt32(value[1]));
+            FromTableToVariationRange();
         }
 
-        public void FindRozmah()
+        private void FindRozmah()
         {
             Rozmah = Convert.ToDecimal(VariationRange.Max() - VariationRange.Min());
+        }
+
+        public new void GenerateSample(double begin,double end,int volume)
+        {
+            base.GenerateSample(begin, end, volume);
+            FindRozmah();
+            FindAmountsOfIntervals();
         }
 
         public void FindAmountsOfIntervals()
@@ -54,9 +71,9 @@ namespace tims_calculation
             for(int i = 0; i < AmountsOfInterval; i++)
             {
                 Intervals.Add(new List<decimal> { begin, end });
-                int X_i = VariationRange.Where(num => (decimal)num >= begin && (decimal)num <= end).Count();
+                int X_i = VariationRange.Count(num => (decimal)num >= begin && (decimal)num <= end);
                 decimal center = Convert.ToDecimal(((end + begin) / 2).ToString("F2"));
-                FrequencyTable.Add(center , X_i);
+                FrequencyTable.Add(Convert.ToDouble(center) , X_i);
                 begin = end;
                 end += interval;
             }
@@ -66,7 +83,7 @@ namespace tims_calculation
 
         public void ShowVariantionRange()
         {
-           // base.ShowVariationRange();
+            base.ShowVariationRange();
         }
 
     }

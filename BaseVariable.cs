@@ -9,7 +9,7 @@ namespace tims_calculation
     class BaseVariable
     {
         public Dictionary<double, int> FrequencyTable { get; set; } 
-        public List<double> VariationRange { get; private set; } 
+        public List<double> VariationRange { get;  set; } 
         public List<double> EmpCDFValues { get; private set; }
         public BaseVariable()
         {
@@ -24,6 +24,30 @@ namespace tims_calculation
                 VariationRange.Add(Programm.GetRandom(begin, end));
             }
             VariationRange.Sort();
+            
+        }
+        public virtual void ReadFromFile()
+        {
+
+        }
+
+        public void FromTableToVariationRange()
+        {
+            if (FrequencyTable.Count == 0)
+            {
+                return;
+            }
+            foreach (KeyValuePair<double, int> keyValue in FrequencyTable)
+            {
+                int i = 0;
+                while (i < keyValue.Value)
+                {
+                    VariationRange.Add(keyValue.Key);
+                    i++;
+                }
+
+            }
+
         }
 
         public void ShowVariationRange()

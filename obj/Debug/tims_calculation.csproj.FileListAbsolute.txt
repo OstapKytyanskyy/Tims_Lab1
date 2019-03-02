@@ -5,6 +5,7 @@ C:\Users\ostap\source\repos\tims_calculation\tims_calculation\bin\Debug\IronPyth
 C:\Users\ostap\source\repos\tims_calculation\tims_calculation\bin\Debug\IronPython.Modules.dll
 C:\Users\ostap\source\repos\tims_calculation\tims_calculation\bin\Debug\IronPython.SQLite.dll
 C:\Users\ostap\source\repos\tims_calculation\tims_calculation\bin\Debug\IronPython.Wpf.dll
+C:\Users\ostap\source\repos\tims_calculation\tims_calculation\bin\Debug\MathNet.Numerics.dll
 C:\Users\ostap\source\repos\tims_calculation\tims_calculation\bin\Debug\Microsoft.Dynamic.dll
 C:\Users\ostap\source\repos\tims_calculation\tims_calculation\bin\Debug\Microsoft.Scripting.dll
 C:\Users\ostap\source\repos\tims_calculation\tims_calculation\bin\Debug\Microsoft.Scripting.Metadata.dll
@@ -12,6 +13,7 @@ C:\Users\ostap\source\repos\tims_calculation\tims_calculation\bin\Debug\IronPyth
 C:\Users\ostap\source\repos\tims_calculation\tims_calculation\bin\Debug\IronPython.Modules.xml
 C:\Users\ostap\source\repos\tims_calculation\tims_calculation\bin\Debug\IronPython.SQLite.xml
 C:\Users\ostap\source\repos\tims_calculation\tims_calculation\bin\Debug\IronPython.Wpf.xml
+C:\Users\ostap\source\repos\tims_calculation\tims_calculation\bin\Debug\MathNet.Numerics.xml
 C:\Users\ostap\source\repos\tims_calculation\tims_calculation\bin\Debug\Microsoft.Dynamic.xml
 C:\Users\ostap\source\repos\tims_calculation\tims_calculation\bin\Debug\Microsoft.Scripting.xml
 C:\Users\ostap\source\repos\tims_calculation\tims_calculation\bin\Debug\Microsoft.Scripting.Metadata.xml
@@ -19,6 +21,4 @@ C:\Users\ostap\source\repos\tims_calculation\tims_calculation\obj\Debug\tims_cal
 C:\Users\ostap\source\repos\tims_calculation\tims_calculation\obj\Debug\tims_calculation.csproj.CopyComplete
 C:\Users\ostap\source\repos\tims_calculation\tims_calculation\obj\Debug\tims_calculation.exe
 C:\Users\ostap\source\repos\tims_calculation\tims_calculation\obj\Debug\tims_calculation.pdb
-C:\Users\ostap\source\repos\tims_calculation\tims_calculation\bin\Debug\MathNet.Numerics.dll
-C:\Users\ostap\source\repos\tims_calculation\tims_calculation\bin\Debug\MathNet.Numerics.xml
 C:\Users\ostap\source\repos\tims_calculation\tims_calculation\obj\Debug\tims_calculation.csprojAssemblyReference.cache
