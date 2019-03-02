@@ -1,0 +1,597 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ContentModelStore">
+    <e p="$USER_HOME$/Library/Caches/Rider2018.2/extResources" t="IncludeRecursive" />
+    <e p="$USER_HOME$/Library/Caches/Rider2018.2/resharper-host/local/Transient/ReSharperHost/v182/SolutionCaches/_Tims_Lab1.-53878291.00" t="ExcludeRecursive" />
+    <e p="$PROJECT_DIR$" t="IncludeRecursive">
+      <e p="App.config" t="Include" />
+      <e p="BaseVariable.cs" t="Include" />
+      <e p="bin" t="ExcludeRecursive" />
+      <e p="DiscreteVariable.cs" t="Include" />
+      <e p="IntervalVariable.cs" t="Include" />
+      <e p="Lib" t="Include">
+        <e p="__future__.py" t="Include" />
+        <e p="__phello__.foo.py" t="Include" />
+        <e p="_abcoll.py" t="Include" />
+        <e p="_LWPCookieJar.py" t="Include" />
+        <e p="_MozillaCookieJar.py" t="Include" />
+        <e p="_osx_support.py" t="Include" />
+        <e p="_pyio.py" t="Include" />
+        <e p="_strptime.py" t="Include" />
+        <e p="_threading_local.py" t="Include" />
+        <e p="_weakrefset.py" t="Include" />
+        <e p="abc.py" t="Include" />
+        <e p="aifc.py" t="Include" />
+        <e p="antigravity.py" t="Include" />
+        <e p="anydbm.py" t="Include" />
+        <e p="argparse.py" t="Include" />
+        <e p="ast.py" t="Include" />
+        <e p="asynchat.py" t="Include" />
+        <e p="asyncore.py" t="Include" />
+        <e p="atexit.py" t="Include" />
+        <e p="audiodev.py" t="Include" />
+        <e p="base64.py" t="Include" />
+        <e p="BaseHTTPServer.py" t="Include" />
+        <e p="Bastion.py" t="Include" />
+        <e p="bdb.py" t="Include" />
+        <e p="binhex.py" t="Include" />
+        <e p="bisect.py" t="Include" />
+        <e p="calendar.py" t="Include" />
+        <e p="cgi.py" t="Include" />
+        <e p="CGIHTTPServer.py" t="Include" />
+        <e p="cgitb.py" t="Include" />
+        <e p="chunk.py" t="Include" />
+        <e p="clrtype.py" t="Include" />
+        <e p="cmd.py" t="Include" />
+        <e p="code.py" t="Include" />
+        <e p="codecs.py" t="Include" />
+        <e p="codeop.py" t="Include" />
+        <e p="collections.py" t="Include" />
+        <e p="colorsys.py" t="Include" />
+        <e p="commands.py" t="Include" />
+        <e p="compileall.py" t="Include" />
+        <e p="ConfigParser.py" t="Include" />
+        <e p="contextlib.py" t="Include" />
+        <e p="Cookie.py" t="Include" />
+        <e p="cookielib.py" t="Include" />
+        <e p="copy.py" t="Include" />
+        <e p="csv.py" t="Include" />
+        <e p="ctypes" t="Include">
+          <e p="__init__.py" t="Include" />
+          <e p="_endian.py" t="Include" />
+          <e p="macholib" t="Include">
+            <e p="__init__.py" t="Include" />
+            <e p="dyld.py" t="Include" />
+            <e p="dylib.py" t="Include" />
+            <e p="framework.py" t="Include" />
+          </e>
+          <e p="util.py" t="Include" />
+          <e p="wintypes.py" t="Include" />
+        </e>
+        <e p="decimal.py" t="Include" />
+        <e p="difflib.py" t="Include" />
+        <e p="dircache.py" t="Include" />
+        <e p="dis.py" t="Include" />
+        <e p="distutils" t="Include">
+          <e p="__init__.py" t="Include" />
+          <e p="archive_util.py" t="Include" />
+          <e p="bcppcompiler.py" t="Include" />
+          <e p="ccompiler.py" t="Include" />
+          <e p="cmd.py" t="Include" />
+          <e p="command" t="Include">
+            <e p="__init__.py" t="Include" />
+            <e p="bdist.py" t="Include" />
+            <e p="bdist_dumb.py" t="Include" />
+            <e p="bdist_rpm.py" t="Include" />
+            <e p="bdist_wininst.py" t="Include" />
+            <e p="build.py" t="Include" />
+            <e p="build_clib.py" t="Include" />
+            <e p="build_ext.py" t="Include" />
+            <e p="build_py.py" t="Include" />
+            <e p="build_scripts.py" t="Include" />
+            <e p="check.py" t="Include" />
+            <e p="clean.py" t="Include" />
+            <e p="config.py" t="Include" />
+            <e p="install.py" t="Include" />
+            <e p="install_data.py" t="Include" />
+            <e p="install_egg_info.py" t="Include" />
+            <e p="install_headers.py" t="Include" />
+            <e p="install_lib.py" t="Include" />
+            <e p="install_scripts.py" t="Include" />
+            <e p="register.py" t="Include" />
+            <e p="sdist.py" t="Include" />
+            <e p="upload.py" t="Include" />
+          </e>
+          <e p="config.py" t="Include" />
+          <e p="core.py" t="Include" />
+          <e p="cygwinccompiler.py" t="Include" />
+          <e p="debug.py" t="Include" />
+          <e p="dep_util.py" t="Include" />
+          <e p="dir_util.py" t="Include" />
+          <e p="dist.py" t="Include" />
+          <e p="emxccompiler.py" t="Include" />
+          <e p="errors.py" t="Include" />
+          <e p="extension.py" t="Include" />
+          <e p="fancy_getopt.py" t="Include" />
+          <e p="file_util.py" t="Include" />
+          <e p="filelist.py" t="Include" />
+          <e p="log.py" t="Include" />
+          <e p="msvccompiler.py" t="Include" />
+          <e p="spawn.py" t="Include" />
+          <e p="sysconfig.py" t="Include" />
+          <e p="text_file.py" t="Include" />
+          <e p="unixccompiler.py" t="Include" />
+          <e p="util.py" t="Include" />
+          <e p="version.py" t="Include" />
+          <e p="versionpredicate.py" t="Include" />
+        </e>
+        <e p="doctest.py" t="Include" />
+        <e p="DocXMLRPCServer.py" t="Include" />
+        <e p="dumbdbm.py" t="Include" />
+        <e p="dummy_thread.py" t="Include" />
+        <e p="dummy_threading.py" t="Include" />
+        <e p="email" t="Include">
+          <e p="__init__.py" t="Include" />
+          <e p="_parseaddr.py" t="Include" />
+          <e p="base64mime.py" t="Include" />
+          <e p="charset.py" t="Include" />
+          <e p="encoders.py" t="Include" />
+          <e p="errors.py" t="Include" />
+          <e p="feedparser.py" t="Include" />
+          <e p="generator.py" t="Include" />
+          <e p="header.py" t="Include" />
+          <e p="iterators.py" t="Include" />
+          <e p="message.py" t="Include" />
+          <e p="mime" t="Include">
+            <e p="__init__.py" t="Include" />
+            <e p="application.py" t="Include" />
+            <e p="audio.py" t="Include" />
+            <e p="base.py" t="Include" />
+            <e p="image.py" t="Include" />
+            <e p="message.py" t="Include" />
+            <e p="multipart.py" t="Include" />
+            <e p="nonmultipart.py" t="Include" />
+            <e p="text.py" t="Include" />
+          </e>
+          <e p="parser.py" t="Include" />
+          <e p="quoprimime.py" t="Include" />
+          <e p="utils.py" t="Include" />
+        </e>
+        <e p="encodings" t="Include">
+          <e p="__init__.py" t="Include" />
+          <e p="aliases.py" t="Include" />
+          <e p="ascii.py" t="Include" />
+          <e p="base64_codec.py" t="Include" />
+          <e p="bz2_codec.py" t="Include" />
+          <e p="charmap.py" t="Include" />
+          <e p="cp037.py" t="Include" />
+          <e p="cp1006.py" t="Include" />
+          <e p="cp1026.py" t="Include" />
+          <e p="cp1140.py" t="Include" />
+          <e p="cp1250.py" t="Include" />
+          <e p="cp1251.py" t="Include" />
+          <e p="cp1252.py" t="Include" />
+          <e p="cp1253.py" t="Include" />
+          <e p="cp1254.py" t="Include" />
+          <e p="cp1255.py" t="Include" />
+          <e p="cp1256.py" t="Include" />
+          <e p="cp1257.py" t="Include" />
+          <e p="cp1258.py" t="Include" />
+          <e p="cp424.py" t="Include" />
+          <e p="cp437.py" t="Include" />
+          <e p="cp500.py" t="Include" />
+          <e p="cp720.py" t="Include" />
+          <e p="cp737.py" t="Include" />
+          <e p="cp775.py" t="Include" />
+          <e p="cp850.py" t="Include" />
+          <e p="cp852.py" t="Include" />
+          <e p="cp855.py" t="Include" />
+          <e p="cp856.py" t="Include" />
+          <e p="cp857.py" t="Include" />
+          <e p="cp858.py" t="Include" />
+          <e p="cp860.py" t="Include" />
+          <e p="cp861.py" t="Include" />
+          <e p="cp862.py" t="Include" />
+          <e p="cp863.py" t="Include" />
+          <e p="cp864.py" t="Include" />
+          <e p="cp865.py" t="Include" />
+          <e p="cp866.py" t="Include" />
+          <e p="cp869.py" t="Include" />
+          <e p="cp874.py" t="Include" />
+          <e p="cp875.py" t="Include" />
+          <e p="hex_codec.py" t="Include" />
+          <e p="hp_roman8.py" t="Include" />
+          <e p="idna.py" t="Include" />
+          <e p="iso8859_1.py" t="Include" />
+          <e p="iso8859_10.py" t="Include" />
+          <e p="iso8859_11.py" t="Include" />
+          <e p="iso8859_13.py" t="Include" />
+          <e p="iso8859_14.py" t="Include" />
+          <e p="iso8859_15.py" t="Include" />
+          <e p="iso8859_16.py" t="Include" />
+          <e p="iso8859_2.py" t="Include" />
+          <e p="iso8859_3.py" t="Include" />
+          <e p="iso8859_4.py" t="Include" />
+          <e p="iso8859_5.py" t="Include" />
+          <e p="iso8859_6.py" t="Include" />
+          <e p="iso8859_7.py" t="Include" />
+          <e p="iso8859_8.py" t="Include" />
+          <e p="iso8859_9.py" t="Include" />
+          <e p="koi8_r.py" t="Include" />
+          <e p="koi8_u.py" t="Include" />
+          <e p="latin_1.py" t="Include" />
+          <e p="mac_arabic.py" t="Include" />
+          <e p="mac_centeuro.py" t="Include" />
+          <e p="mac_croatian.py" t="Include" />
+          <e p="mac_cyrillic.py" t="Include" />
+          <e p="mac_farsi.py" t="Include" />
+          <e p="mac_greek.py" t="Include" />
+          <e p="mac_iceland.py" t="Include" />
+          <e p="mac_latin2.py" t="Include" />
+          <e p="mac_roman.py" t="Include" />
+          <e p="mac_romanian.py" t="Include" />
+          <e p="mac_turkish.py" t="Include" />
+          <e p="mbcs.py" t="Include" />
+          <e p="palmos.py" t="Include" />
+          <e p="ptcp154.py" t="Include" />
+          <e p="punycode.py" t="Include" />
+          <e p="quopri_codec.py" t="Include" />
+          <e p="raw_unicode_escape.py" t="Include" />
+          <e p="rot_13.py" t="Include" />
+          <e p="string_escape.py" t="Include" />
+          <e p="tis_620.py" t="Include" />
+          <e p="undefined.py" t="Include" />
+          <e p="unicode_escape.py" t="Include" />
+          <e p="unicode_internal.py" t="Include" />
+          <e p="utf_16.py" t="Include" />
+          <e p="utf_16_be.py" t="Include" />
+          <e p="utf_16_le.py" t="Include" />
+          <e p="utf_32.py" t="Include" />
+          <e p="utf_32_be.py" t="Include" />
+          <e p="utf_32_le.py" t="Include" />
+          <e p="utf_7.py" t="Include" />
+          <e p="utf_8.py" t="Include" />
+          <e p="utf_8_sig.py" t="Include" />
+          <e p="uu_codec.py" t="Include" />
+          <e p="zlib_codec.py" t="Include" />
+        </e>
+        <e p="ensurepip" t="Include">
+          <e p="__init__.py" t="Include" />
+          <e p="__main__.py" t="Include" />
+          <e p="_bundled" t="Include">
+            <e p="pip-8.1.1-py2.py3-none-any.whl" t="Include" />
+            <e p="setuptools-20.10.1-py2.py3-none-any.whl" t="Include" />
+          </e>
+          <e p="_uninstall.py" t="Include" />
+        </e>
+        <e p="filecmp.py" t="Include" />
+        <e p="fileinput.py" t="Include" />
+        <e p="fnmatch.py" t="Include" />
+        <e p="formatter.py" t="Include" />
+        <e p="fpformat.py" t="Include" />
+        <e p="fractions.py" t="Include" />
+        <e p="ftplib.py" t="Include" />
+        <e p="functools.py" t="Include" />
+        <e p="genericpath.py" t="Include" />
+        <e p="getopt.py" t="Include" />
+        <e p="getpass.py" t="Include" />
+        <e p="gettext.py" t="Include" />
+        <e p="glob.py" t="Include" />
+        <e p="gzip.py" t="Include" />
+        <e p="hashlib.py" t="Include" />
+        <e p="heapq.py" t="Include" />
+        <e p="hmac.py" t="Include" />
+        <e p="htmlentitydefs.py" t="Include" />
+        <e p="htmllib.py" t="Include" />
+        <e p="HTMLParser.py" t="Include" />
+        <e p="httplib.py" t="Include" />
+        <e p="ihooks.py" t="Include" />
+        <e p="imaplib.py" t="Include" />
+        <e p="imghdr.py" t="Include" />
+        <e p="importlib" t="Include">
+          <e p="__init__.py" t="Include" />
+        </e>
+        <e p="imputil.py" t="Include" />
+        <e p="inspect.py" t="Include" />
+        <e p="io.py" t="Include" />
+        <e p="json" t="Include">
+          <e p="__init__.py" t="Include" />
+          <e p="decoder.py" t="Include" />
+          <e p="encoder.py" t="Include" />
+          <e p="scanner.py" t="Include" />
+          <e p="tool.py" t="Include" />
+        </e>
+        <e p="keyword.py" t="Include" />
+        <e p="lib2to3" t="Include">
+          <e p="__init__.py" t="Include" />
+          <e p="__main__.py" t="Include" />
+          <e p="btm_matcher.py" t="Include" />
+          <e p="btm_utils.py" t="Include" />
+          <e p="fixer_base.py" t="Include" />
+          <e p="fixer_util.py" t="Include" />
+          <e p="fixes" t="Include">
+            <e p="__init__.py" t="Include" />
+            <e p="fix_apply.py" t="Include" />
+            <e p="fix_asserts.py" t="Include" />
+            <e p="fix_basestring.py" t="Include" />
+            <e p="fix_buffer.py" t="Include" />
+            <e p="fix_dict.py" t="Include" />
+            <e p="fix_except.py" t="Include" />
+            <e p="fix_exec.py" t="Include" />
+            <e p="fix_execfile.py" t="Include" />
+            <e p="fix_exitfunc.py" t="Include" />
+            <e p="fix_filter.py" t="Include" />
+            <e p="fix_funcattrs.py" t="Include" />
+            <e p="fix_future.py" t="Include" />
+            <e p="fix_getcwdu.py" t="Include" />
+            <e p="fix_has_key.py" t="Include" />
+            <e p="fix_idioms.py" t="Include" />
+            <e p="fix_import.py" t="Include" />
+            <e p="fix_imports.py" t="Include" />
+            <e p="fix_imports2.py" t="Include" />
+            <e p="fix_input.py" t="Include" />
+            <e p="fix_intern.py" t="Include" />
+            <e p="fix_isinstance.py" t="Include" />
+            <e p="fix_itertools.py" t="Include" />
+            <e p="fix_itertools_imports.py" t="Include" />
+            <e p="fix_long.py" t="Include" />
+            <e p="fix_map.py" t="Include" />
+            <e p="fix_metaclass.py" t="Include" />
+            <e p="fix_methodattrs.py" t="Include" />
+            <e p="fix_ne.py" t="Include" />
+            <e p="fix_next.py" t="Include" />
+            <e p="fix_nonzero.py" t="Include" />
+            <e p="fix_numliterals.py" t="Include" />
+            <e p="fix_operator.py" t="Include" />
+            <e p="fix_paren.py" t="Include" />
+            <e p="fix_print.py" t="Include" />
+            <e p="fix_raise.py" t="Include" />
+            <e p="fix_raw_input.py" t="Include" />
+            <e p="fix_reduce.py" t="Include" />
+            <e p="fix_renames.py" t="Include" />
+            <e p="fix_repr.py" t="Include" />
+            <e p="fix_set_literal.py" t="Include" />
+            <e p="fix_standarderror.py" t="Include" />
+            <e p="fix_sys_exc.py" t="Include" />
+            <e p="fix_throw.py" t="Include" />
+            <e p="fix_tuple_params.py" t="Include" />
+            <e p="fix_types.py" t="Include" />
+            <e p="fix_unicode.py" t="Include" />
+            <e p="fix_urllib.py" t="Include" />
+            <e p="fix_ws_comma.py" t="Include" />
+            <e p="fix_xrange.py" t="Include" />
+            <e p="fix_xreadlines.py" t="Include" />
+            <e p="fix_zip.py" t="Include" />
+          </e>
+          <e p="main.py" t="Include" />
+          <e p="patcomp.py" t="Include" />
+          <e p="pgen2" t="Include">
+            <e p="__init__.py" t="Include" />
+            <e p="conv.py" t="Include" />
+            <e p="driver.py" t="Include" />
+            <e p="grammar.py" t="Include" />
+            <e p="literals.py" t="Include" />
+            <e p="parse.py" t="Include" />
+            <e p="pgen.py" t="Include" />
+            <e p="token.py" t="Include" />
+            <e p="tokenize.py" t="Include" />
+          </e>
+          <e p="pygram.py" t="Include" />
+          <e p="pytree.py" t="Include" />
+          <e p="refactor.py" t="Include" />
+        </e>
+        <e p="linecache.py" t="Include" />
+        <e p="locale.py" t="Include" />
+        <e p="logging" t="Include">
+          <e p="__init__.py" t="Include" />
+          <e p="config.py" t="Include" />
+          <e p="handlers.py" t="Include" />
+        </e>
+        <e p="macpath.py" t="Include" />
+        <e p="macurl2path.py" t="Include" />
+        <e p="mailbox.py" t="Include" />
+        <e p="mailcap.py" t="Include" />
+        <e p="markupbase.py" t="Include" />
+        <e p="md5.py" t="Include" />
+        <e p="mhlib.py" t="Include" />
+        <e p="mimetools.py" t="Include" />
+        <e p="mimetypes.py" t="Include" />
+        <e p="MimeWriter.py" t="Include" />
+        <e p="mimify.py" t="Include" />
+        <e p="modulefinder.py" t="Include" />
+        <e p="multifile.py" t="Include" />
+        <e p="multiprocessing" t="Include">
+          <e p="__init__.py" t="Include" />
+          <e p="connection.py" t="Include" />
+          <e p="dummy" t="Include">
+            <e p="__init__.py" t="Include" />
+            <e p="connection.py" t="Include" />
+          </e>
+          <e p="forking.py" t="Include" />
+          <e p="heap.py" t="Include" />
+          <e p="managers.py" t="Include" />
+          <e p="pool.py" t="Include" />
+          <e p="process.py" t="Include" />
+          <e p="queues.py" t="Include" />
+          <e p="reduction.py" t="Include" />
+          <e p="sharedctypes.py" t="Include" />
+          <e p="synchronize.py" t="Include" />
+          <e p="util.py" t="Include" />
+        </e>
+        <e p="mutex.py" t="Include" />
+        <e p="netrc.py" t="Include" />
+        <e p="new.py" t="Include" />
+        <e p="nntplib.py" t="Include" />
+        <e p="ntpath.py" t="Include" />
+        <e p="nturl2path.py" t="Include" />
+        <e p="numbers.py" t="Include" />
+        <e p="opcode.py" t="Include" />
+        <e p="optparse.py" t="Include" />
+        <e p="os.py" t="Include" />
+        <e p="os2emxpath.py" t="Include" />
+        <e p="pdb.py" t="Include" />
+        <e p="pickle.py" t="Include" />
+        <e p="pickletools.py" t="Include" />
+        <e p="pipes.py" t="Include" />
+        <e p="pkgutil.py" t="Include" />
+        <e p="platform.py" t="Include" />
+        <e p="plistlib.py" t="Include" />
+        <e p="popen2.py" t="Include" />
+        <e p="poplib.py" t="Include" />
+        <e p="posixfile.py" t="Include" />
+        <e p="posixpath.py" t="Include" />
+        <e p="pprint.py" t="Include" />
+        <e p="profile.py" t="Include" />
+        <e p="pstats.py" t="Include" />
+        <e p="py_compile.py" t="Include" />
+        <e p="pyclbr.py" t="Include" />
+        <e p="pydoc.py" t="Include" />
+        <e p="pydoc_data" t="Include">
+          <e p="__init__.py" t="Include" />
+          <e p="topics.py" t="Include" />
+        </e>
+        <e p="Queue.py" t="Include" />
+        <e p="quopri.py" t="Include" />
+        <e p="random.py" t="Include" />
+        <e p="repr.py" t="Include" />
+        <e p="rexec.py" t="Include" />
+        <e p="rfc822.py" t="Include" />
+        <e p="rlcompleter.py" t="Include" />
+        <e p="robotparser.py" t="Include" />
+        <e p="runpy.py" t="Include" />
+        <e p="sched.py" t="Include" />
+        <e p="sets.py" t="Include" />
+        <e p="sgmllib.py" t="Include" />
+        <e p="sha.py" t="Include" />
+        <e p="shelve.py" t="Include" />
+        <e p="shlex.py" t="Include" />
+        <e p="shutil.py" t="Include" />
+        <e p="SimpleHTTPServer.py" t="Include" />
+        <e p="SimpleXMLRPCServer.py" t="Include" />
+        <e p="site-packages" t="Include">
+          <e p="README.txt" t="Include" />
+        </e>
+        <e p="site.py" t="Include" />
+        <e p="smtpd.py" t="Include" />
+        <e p="smtplib.py" t="Include" />
+        <e p="sndhdr.py" t="Include" />
+        <e p="socket.py" t="Include" />
+        <e p="SocketServer.py" t="Include" />
+        <e p="sqlite3" t="Include">
+          <e p="__init__.py" t="Include" />
+          <e p="dbapi2.py" t="Include" />
+          <e p="dump.py" t="Include" />
+        </e>
+        <e p="sre_constants.py" t="Include" />
+        <e p="sre_parse.py" t="Include" />
+        <e p="ssl.py" t="Include" />
+        <e p="stat.py" t="Include" />
+        <e p="statvfs.py" t="Include" />
+        <e p="string.py" t="Include" />
+        <e p="StringIO.py" t="Include" />
+        <e p="stringold.py" t="Include" />
+        <e p="stringprep.py" t="Include" />
+        <e p="struct.py" t="Include" />
+        <e p="subprocess.py" t="Include" />
+        <e p="sunau.py" t="Include" />
+        <e p="sunaudio.py" t="Include" />
+        <e p="symbol.py" t="Include" />
+        <e p="sysconfig.py" t="Include" />
+        <e p="tabnanny.py" t="Include" />
+        <e p="tarfile.py" t="Include" />
+        <e p="telnetlib.py" t="Include" />
+        <e p="tempfile.py" t="Include" />
+        <e p="textwrap.py" t="Include" />
+        <e p="this.py" t="Include" />
+        <e p="threading.py" t="Include" />
+        <e p="timeit.py" t="Include" />
+        <e p="toaiff.py" t="Include" />
+        <e p="token.py" t="Include" />
+        <e p="tokenize.py" t="Include" />
+        <e p="trace.py" t="Include" />
+        <e p="traceback.py" t="Include" />
+        <e p="types.py" t="Include" />
+        <e p="unittest" t="Include">
+          <e p="__init__.py" t="Include" />
+          <e p="__main__.py" t="Include" />
+          <e p="case.py" t="Include" />
+          <e p="loader.py" t="Include" />
+          <e p="main.py" t="Include" />
+          <e p="result.py" t="Include" />
+          <e p="runner.py" t="Include" />
+          <e p="signals.py" t="Include" />
+          <e p="suite.py" t="Include" />
+          <e p="util.py" t="Include" />
+        </e>
+        <e p="urllib.py" t="Include" />
+        <e p="urllib2.py" t="Include" />
+        <e p="urlparse.py" t="Include" />
+        <e p="user.py" t="Include" />
+        <e p="UserDict.py" t="Include" />
+        <e p="UserList.py" t="Include" />
+        <e p="UserString.py" t="Include" />
+        <e p="uu.py" t="Include" />
+        <e p="uuid.py" t="Include" />
+        <e p="warnings.py" t="Include" />
+        <e p="wave.py" t="Include" />
+        <e p="weakref.py" t="Include" />
+        <e p="webbrowser.py" t="Include" />
+        <e p="whichdb.py" t="Include" />
+        <e p="wpf.py" t="Include" />
+        <e p="wsgiref" t="Include">
+          <e p="__init__.py" t="Include" />
+          <e p="handlers.py" t="Include" />
+          <e p="headers.py" t="Include" />
+          <e p="simple_server.py" t="Include" />
+          <e p="util.py" t="Include" />
+          <e p="validate.py" t="Include" />
+        </e>
+        <e p="xdrlib.py" t="Include" />
+        <e p="xml" t="Include">
+          <e p="__init__.py" t="Include" />
+          <e p="dom" t="Include">
+            <e p="__init__.py" t="Include" />
+            <e p="domreg.py" t="Include" />
+            <e p="expatbuilder.py" t="Include" />
+            <e p="minicompat.py" t="Include" />
+            <e p="minidom.py" t="Include" />
+            <e p="NodeFilter.py" t="Include" />
+            <e p="pulldom.py" t="Include" />
+            <e p="xmlbuilder.py" t="Include" />
+          </e>
+          <e p="etree" t="Include">
+            <e p="__init__.py" t="Include" />
+            <e p="ElementInclude.py" t="Include" />
+            <e p="ElementPath.py" t="Include" />
+            <e p="ElementTree.py" t="Include" />
+            <e p="SimpleXMLTreeBuilder.py" t="Include" />
+          </e>
+          <e p="parsers" t="Include">
+            <e p="__init__.py" t="Include" />
+            <e p="expat.py" t="Include" />
+          </e>
+          <e p="sax" t="Include">
+            <e p="__init__.py" t="Include" />
+            <e p="_exceptions.py" t="Include" />
+            <e p="expatreader.py" t="Include" />
+            <e p="handler.py" t="Include" />
+            <e p="saxutils.py" t="Include" />
+            <e p="xmlreader.py" t="Include" />
+          </e>
+        </e>
+        <e p="xmllib.py" t="Include" />
+        <e p="xmlrpclib.py" t="Include" />
+        <e p="zipfile.py" t="Include" />
+      </e>
+      <e p="NumericalCharacteristics.cs" t="Include" />
+      <e p="obj" t="ExcludeRecursive" />
+      <e p="packages" t="ExcludeRecursive" />
+      <e p="packages.config" t="Include" />
+      <e p="Program.cs" t="Include" />
+      <e p="Properties" t="Include">
+        <e p="AssemblyInfo.cs" t="Include" />
+      </e>
+      <e p="tims_calculation.csproj" t="IncludeRecursive" />
+    </e>
+  </component>
+</project>
