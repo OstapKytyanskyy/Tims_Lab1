@@ -6,11 +6,11 @@ using System.Threading.Tasks;
 
 namespace tims_calculation
 {
-    class IntervalVariable 
+    class IntervalVariable : BaseVariable 
     {
         public decimal Rozmah { get; private set; }
         public decimal AmountsOfInterval { get; private set; }
-        public Dictionary<decimal, int> FrequencyTable { get; set; } = new Dictionary<decimal, int>();
+        //public Dictionary<decimal, int> FrequencyTable { get; set; } = new Dictionary<decimal, int>();
         // public List<decimal> VariationRange { get; private set; } = new List<decimal>();
         public List<double> VariationRange { get; private set; } = new List<double>();
         public List<List<decimal>> Intervals { get; set; } = new List<List<decimal>>();
@@ -27,7 +27,7 @@ namespace tims_calculation
             FindAmountsOfIntervals();
         }
 
-        public void FindRozmah()
+        private void FindRozmah()
         {
             Rozmah = Convert.ToDecimal(VariationRange.Max() - VariationRange.Min());
         }
@@ -54,9 +54,9 @@ namespace tims_calculation
             for(int i = 0; i < AmountsOfInterval; i++)
             {
                 Intervals.Add(new List<decimal> { begin, end });
-                int X_i = VariationRange.Where(num => (decimal)num >= begin && (decimal)num <= end).Count();
+                int X_i = VariationRange.Count(num => (decimal)num >= begin && (decimal)num <= end);
                 decimal center = Convert.ToDecimal(((end + begin) / 2).ToString("F2"));
-                FrequencyTable.Add(center , X_i);
+                FrequencyTable.Add(Convert.ToDouble(center) , X_i);
                 begin = end;
                 end += interval;
             }
@@ -66,7 +66,7 @@ namespace tims_calculation
 
         public void ShowVariantionRange()
         {
-           // base.ShowVariationRange();
+            base.ShowVariationRange();
         }
 
     }

@@ -7,9 +7,9 @@ using System.Threading.Tasks;
 
 namespace tims_calculation
 {
-    class DiscreteVariable :  BaseVariable
+    class DescreteVariable :  BaseVariable
     {
-        public DiscreteVariable() : base()
+        public DescreteVariable() : base()
         {
         }
 
@@ -27,7 +27,7 @@ namespace tims_calculation
 
         public  void FormFrequencyTable()
         {
-            FrequencyTable = VariationRange.GroupBy(val => val).ToDictionary((keyitem) => keyitem.Key, (valueItem) => valueItem.Count());
+            FrequencyTable = VariationRange.GroupBy(val => val).ToDictionary((keyItem) => keyItem.Key, (valueItem) => valueItem.Count());
         }
 
         public  void EmpiricalCDF()

@@ -24,12 +24,24 @@ namespace tims_calculation
         static void Main(string[] args)
         {
             
-            Dictionary<double, double> points = new Dictionary<double, double> ();
-            points.Add(1, 2);
-            points.Add(3, 5);
-            points.Add(4, 7);
-            points.Add(8, 2);
-            points.Add(9, 4);
+            
+            
+            Console.WriteLine("Choose Variable, type D for Descrete and I for Interval");
+            var chose = Console.ReadKey();
+            if (chose.ToString().ToUpper() == "D")
+            {
+                UI.StartUI(EnumVariables.DescretVariable);
+            }
+            else
+            {
+                UI.StartUI(EnumVariables.IntervalVariable);
+            }
+//            Dictionary<double, double> points = new Dictionary<double, double> ();
+//            points.Add(1, 2);
+//            points.Add(3, 5);
+//            points.Add(4, 7);
+//            points.Add(8, 2);
+//            points.Add(9, 4);
             //for (int i = 0; i < 10; i++)
             //{
             //    var randNum = GetRandom();
@@ -43,11 +55,11 @@ namespace tims_calculation
 
             //DiscreteVariable v = new DiscreteVariable();
             List<double> ls = new List<double> {8,7,6,9,10,9,11,8,9,10,8,9,6,9,8,10,7,10,12,7 };
-            IntervalVariable inter = new IntervalVariable();
+            //IntervalVariable inter = new IntervalVariable();
             //inter.FindRozmah();
-            inter.GenerateSample(0,20,50);
-            inter.FormFrequencyTable();
-
+            //inter.GenerateSample(0,20,50);
+            //inter.FormFrequencyTable();
+            NumericalCharacteristics.Mode(ls);
 
             //v.GenerateSample(0, 10, 5000000);
             //v.ShowVariationRange();
@@ -66,6 +78,8 @@ namespace tims_calculation
             //RunPython(x_axis, y_axis);
             Console.ReadLine();
         }
+
+        
         static void RunPython(string x_axis, string y_axis)
         {
 
