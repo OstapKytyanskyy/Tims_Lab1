@@ -2,15 +2,21 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Runtime.InteropServices;
+using System.Threading.Tasks;
+using NumSharp.Core;
+using NumSharp.Core.Manipulation;
+using PandasNET;
 
 namespace tims_calculation
 {
-    public class UI
+    class UI
     {
-        public static void PrintMode(double s)
+        public static string PrintMode(double s)
         {
-            Console.WriteLine(s.ToString());
+            return s.ToString();
         }
+
+
 
         public static void StartUI(EnumVariables variable, WayOfCreation wayOfCreation)
         {
@@ -25,31 +31,23 @@ namespace tims_calculation
                 dynamic input = Console.ReadLine();
                 input = input.ToString().Split(' ');
 
+                
+
                 desvar.GenerateSample(Convert.ToDouble(input[0]), Convert.ToDouble(input[1]),Convert.ToInt32(input[2]));
                 desvar.FormFrequencyTable();
-                desvar.ShowVariationRange();
-                var ls = NumericalCharacteristics.Mode(desvar.FrequencyTable);
-                Console.WriteLine($"Mode : ");
-                ls.ForEach(PrintMode);
 
-                Console.WriteLine($"Median : {NumericalCharacteristics.Median(desvar.VariationRange)}");
+                PrintStatis(desvar);
 
-                Console.WriteLine($"Mean : {NumericalCharacteristics.Mean(desvar.VariationRange)}");
+                string x_axis;
+                string y_axis;
+                string ecdf;
+              
+                desvar.PackParametrsToPython(out x_axis, out y_axis, out ecdf);
 
-                Console.WriteLine($"Deviation : {NumericalCharacteristics.Deviation(desvar.VariationRange)}");
-
-                Console.WriteLine($"Variance : {NumericalCharacteristics.Variance(desvar.VariationRange)}");
-
-                Console.WriteLine($"Standart Deviation : {NumericalCharacteristics.StandartDeviation(desvar.VariationRange)}");
-
-                Console.WriteLine($"Variation of Row : {NumericalCharacteristics.VariationOfRow(desvar.VariationRange)}");
-
-                Console.WriteLine($"Skewness : {NumericalCharacteristics.Skewness(desvar.VariationRange)}");
-
-                Console.WriteLine($"Kurtoris : {NumericalCharacteristics.Kurtoris(desvar.VariationRange)}");
+                PlotingGraphs(x_axis, y_axis, ecdf);
                 
                 
-                
+
             }
             else if(variable == EnumVariables.DescretVariable && wayOfCreation == WayOfCreation.FromFile)
             {
@@ -57,52 +55,81 @@ namespace tims_calculation
 
                 desvar.ReadFromFile();
                 desvar.ShowVariationRange();
-                var ls = NumericalCharacteristics.Mode(desvar.FrequencyTable);
-                Console.WriteLine($"Mode : ");
-                ls.ForEach(PrintMode);
 
-                Console.WriteLine($"Median : {NumericalCharacteristics.Median(desvar.VariationRange)}");
+                PrintStatis(desvar);
 
-                Console.WriteLine($"Mean : {NumericalCharacteristics.Mean(desvar.VariationRange)}");
+                string x_axis;
+                string y_axis;
+                string ecdf;
 
-                Console.WriteLine($"Deviation : {NumericalCharacteristics.Deviation(desvar.VariationRange)}");
+                desvar.PackParametrsToPython(out x_axis, out y_axis, out ecdf);
 
-                Console.WriteLine($"Variance : {NumericalCharacteristics.Variance(desvar.VariationRange)}");
+                PlotingGraphs(x_axis, y_axis, ecdf);
 
-                Console.WriteLine($"Standart Deviation : {NumericalCharacteristics.StandartDeviation(desvar.VariationRange)}");
-
-                Console.WriteLine($"Variation of Row : {NumericalCharacteristics.VariationOfRow(desvar.VariationRange)}");
-
-                Console.WriteLine($"Skewness : {NumericalCharacteristics.Skewness(desvar.VariationRange)}");
-
-                Console.WriteLine($"Kurtoris : {NumericalCharacteristics.Kurtoris(desvar.VariationRange)}");
 
             }
-            else if(variable == EnumVariables.IntervalVariable && wayOfCreation == WayOfCreation.FromFile)
+            else if(variable == EnumVariables.IntervalVariable && wayOfCreation == WayOfCreation.GenerateRandomly)
             {
                 IntervalVariable intvar = new IntervalVariable();
-                Console.WriteLine("\nFor Interval Variable");
-                Console.WriteLine("Enter begin of sample, end and volume");
-
-               
-
-                Console.WriteLine($"Mean : {NumericalCharacteristics.Mean(intvar.VariationRange)}");
-
-                Console.WriteLine($"Deviation : {NumericalCharacteristics.Deviation(intvar.VariationRange)}");
-
-                Console.WriteLine($"Variance : {NumericalCharacteristics.Variance(intvar.VariationRange)}");
-
-                Console.WriteLine($"Standart Deviation : {NumericalCharacteristics.StandartDeviation(intvar.VariationRange)}");
-
-                Console.WriteLine($"Variation of Row : {NumericalCharacteristics.VariationOfRow(intvar.VariationRange)}");
-
-                Console.WriteLine($"Skewness : {NumericalCharacteristics.Skewness(intvar.VariationRange)}");
-
-                Console.WriteLine($"Kurtoris : {NumericalCharacteristics.Kurtoris(intvar.VariationRange)}");
+                intvar.GenerateSample(0, 10, 80);
+                intvar.FormFrequencyTable();
 
             }
 
 
+        }
+
+        public static void PlotingGraphs(string x_axis,string y_axis,string ecdf)
+        {
+            Task[] tasks = new Task[3]
+                {
+                    new Task(() => Programm.RunPython(x_axis, y_axis, ecdf, @"C:\Users\ostap\PycharmProjects\tims\main.py")),
+                    new Task(() => Programm.RunPython(x_axis, y_axis, ecdf, @"C:\Users\ostap\PycharmProjects\tims\poligon.py")),
+                    new Task(() => Programm.RunPython(x_axis, y_axis, ecdf, @"C:\Users\ostap\PycharmProjects\tims\ECDF.py"))
+                };
+
+            foreach (var t in tasks)
+                t.Start();
+            Task.WaitAll(tasks);
+        }
+
+
+        public static void PrintStatis(DescreteVariable desvar)
+        {
+            List<string> resultText = new List<string>();
+            resultText.Add("Variation Range : " + desvar.ShowVariationRange());
+            var ls = NumericalCharacteristics.Mode(desvar.FrequencyTable);
+            string mode = " ";
+            foreach (var md in ls)
+            {
+                mode += md.ToString() + " ";
+            }
+            resultText.Add("Mode : " + mode + " ");
+
+
+
+            resultText.Add($"Median : {NumericalCharacteristics.Median(desvar.VariationRange)}");
+
+            resultText.Add($"Mean : {NumericalCharacteristics.Mean(desvar.VariationRange)}");
+
+            resultText.Add($"Deviation : {NumericalCharacteristics.Deviation(desvar.VariationRange)}");
+
+            resultText.Add($"Variance : {NumericalCharacteristics.Variance(desvar.VariationRange)}");
+
+            resultText.Add($"Standart Deviation : {NumericalCharacteristics.StandartDeviation(desvar.VariationRange)}");
+
+            resultText.Add($"Variation of Row : {NumericalCharacteristics.VariationOfRow(desvar.VariationRange)}");
+
+            resultText.Add($"Skewness : {NumericalCharacteristics.Skewness(desvar.VariationRange)}");
+
+            resultText.Add($"Kurtoris : {NumericalCharacteristics.Kurtoris(desvar.VariationRange)}");
+
+            System.IO.File.WriteAllLines(@"C:\Users\ostap\source\repos\tims_calculation\tims_calculation\TextFiles\Statistics.txt", resultText);
+
+            foreach (var line in System.IO.File.ReadAllLines(@"C:\Users\ostap\source\repos\tims_calculation\tims_calculation\TextFiles\Statistics.txt"))
+            {
+                Console.WriteLine(line);
+            }
         }
     }
 }

@@ -50,14 +50,14 @@ namespace tims_calculation
 
         }
 
-        public void ShowVariationRange()
+        public string ShowVariationRange()
         {
-            Console.WriteLine("Variation Range : ");
+            string result = "";
             foreach (var num in VariationRange)
             {
-                Console.Write($"{num}  ");
+                result += num + " ";
             }
-            Console.WriteLine();
+            return result;
         }
 
     }

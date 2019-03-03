@@ -71,7 +71,11 @@ namespace tims_calculation
             for(int i = 0; i < AmountsOfInterval; i++)
             {
                 Intervals.Add(new List<decimal> { begin, end });
-                int X_i = VariationRange.Count(num => (decimal)num >= begin && (decimal)num <= end);
+                if (i == AmountsOfInterval-1)
+                {
+                    end += 0.01m;
+                }
+                int X_i = VariationRange.Count(num => (decimal)num >= begin && (decimal)num < end);
                 decimal center = Convert.ToDecimal(((end + begin) / 2).ToString("F2"));
                 FrequencyTable.Add(Convert.ToDouble(center) , X_i);
                 begin = end;
