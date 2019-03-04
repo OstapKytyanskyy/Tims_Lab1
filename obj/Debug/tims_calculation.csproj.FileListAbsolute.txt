@@ -121,7 +121,6 @@ C:\Users\ostap\source\repos\tims_calculation\tims_calculation\bin\Debug\System.X
 C:\Users\ostap\source\repos\tims_calculation\tims_calculation\bin\Debug\Microsoft.Win32.Registry.AccessControl.dll
 C:\Users\ostap\source\repos\tims_calculation\tims_calculation\bin\Debug\Microsoft.Win32.Registry.dll
 C:\Users\ostap\source\repos\tims_calculation\tims_calculation\bin\Debug\Microsoft.Win32.SystemEvents.dll
-C:\Users\ostap\source\repos\tims_calculation\tims_calculation\bin\Debug\NumSharp.Core.dll
 C:\Users\ostap\source\repos\tims_calculation\tims_calculation\bin\Debug\System.Buffers.dll
 C:\Users\ostap\source\repos\tims_calculation\tims_calculation\bin\Debug\System.CodeDom.dll
 C:\Users\ostap\source\repos\tims_calculation\tims_calculation\bin\Debug\System.Configuration.ConfigurationManager.dll

@@ -3,9 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Runtime.InteropServices;
 using System.Threading.Tasks;
-using NumSharp.Core;
-using NumSharp.Core.Manipulation;
-using PandasNET;
+
 
 namespace tims_calculation
 {
@@ -131,5 +129,43 @@ namespace tims_calculation
                 Console.WriteLine(line);
             }
         }
+
+
+        public static void PrintStatis(IntervalVariable intervar)
+        {
+            List<string> resultText = new List<string>();
+
+            var ls = NumericalCharacteristics.Mode(intervar);
+            string mode = " ";
+            foreach (var md in ls)
+            {
+                mode += md.ToString() + " ";
+            }
+            resultText.Add("Mode : " + mode + " ");
+
+            resultText.Add($"Mean : {NumericalCharacteristics.Mean(intervar.VariationRange)}");
+
+            resultText.Add($"Median : {NumericalCharacteristics.Median(intervar)}");
+
+            resultText.Add($"Deviation : {NumericalCharacteristics.Deviation(intervar.VariationRange)}");
+
+            resultText.Add($"Variance : {NumericalCharacteristics.Variance(intervar.VariationRange)}");
+
+            resultText.Add($"Standart Deviation : {NumericalCharacteristics.StandartDeviation(intervar.VariationRange)}");
+
+            resultText.Add($"Variation of Row : {NumericalCharacteristics.VariationOfRow(intervar.VariationRange)}");
+
+            resultText.Add($"Skewness : {NumericalCharacteristics.Skewness(intervar.VariationRange)}");
+
+            resultText.Add($"Kurtoris : {NumericalCharacteristics.Kurtoris(intervar.VariationRange)}");
+
+            System.IO.File.WriteAllLines(@"C:\Users\ostap\source\repos\tims_calculation\tims_calculation\TextFiles\Statistics.txt", resultText);
+
+            foreach (var line in System.IO.File.ReadAllLines(@"C:\Users\ostap\source\repos\tims_calculation\tims_calculation\TextFiles\Statistics.txt"))
+            {
+                Console.WriteLine(line);
+            }
+        }
+
     }
 }

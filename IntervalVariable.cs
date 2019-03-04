@@ -10,8 +10,12 @@ namespace tims_calculation
     {
         public decimal Rozmah { get; private set; }
         public decimal AmountsOfInterval { get; private set; }
+        public decimal DifferenceBetweenCentres { get; set; }
         public List<List<decimal>> Intervals { get; set; } = new List<List<decimal>>();
-        public List<List<double>> OriginIntervals { get; set; } = new List<List<double>>(); 
+        public decimal Interval { get; set; }
+        public List<decimal> WeightOfInterval { get; set; } = new List<decimal>();
+        //public List<List<decimal>> OriginIntervals { get; set; } = new List<List<decimal>>(); 
+        public Dictionary<List<decimal>, int> OriginalStatisticMaterial { get; set; } = new Dictionary<List<decimal>, int>();
 
         public override void ReadFromFile()
         {
@@ -22,10 +26,10 @@ namespace tims_calculation
             var splited = lines[0].Split(',').Select(item => item.Split(' '));
             foreach (var splt in splited)
             { 
-                OriginIntervals.Add(new List<double> { Convert.ToDouble(splt[0]), Convert.ToDouble(splt[1]) });
+                Intervals.Add(new List<decimal> { Convert.ToDecimal(splt[0]), Convert.ToDecimal(splt[1]) });
             }
 
-            foreach(var i in OriginIntervals)
+            foreach(var i in Intervals)
             {
                 Z_i.Add(Convert.ToDouble(((i[0] + i[1])/2).ToString("F2")));
 
@@ -34,7 +38,10 @@ namespace tims_calculation
             M_i = lines[1].Split(' ').Select(item => Convert.ToInt32(item)).ToList();
 
             FrequencyTable = Z_i.Zip(M_i, (k, v) => new List<double> { k,v} ).ToDictionary((key) => key[0], (value) => Convert.ToInt32(value[1]));
+            
             FromTableToVariationRange();
+            FindRozmah();
+            FindAmountsOfIntervals();
         }
 
         private void FindRozmah()
@@ -65,9 +72,9 @@ namespace tims_calculation
 
         public void FormFrequencyTable()
         {
-            decimal interval = Convert.ToDecimal((Rozmah / AmountsOfInterval).ToString("F2")) + 0.01m;
+            Interval = Convert.ToDecimal((Rozmah / AmountsOfInterval).ToString("F2")) + 0.01m;
             decimal begin = Convert.ToDecimal(VariationRange[0]);
-            decimal end = Convert.ToDecimal( (Convert.ToDecimal(VariationRange[0]) + interval).ToString("F2"));
+            decimal end = Convert.ToDecimal( (Convert.ToDecimal(VariationRange[0]) + Interval).ToString("F2"));
             for(int i = 0; i < AmountsOfInterval; i++)
             {
                 Intervals.Add(new List<decimal> { begin, end });
@@ -76,14 +83,29 @@ namespace tims_calculation
                     end += 0.01m;
                 }
                 int X_i = VariationRange.Count(num => (decimal)num >= begin && (decimal)num < end);
+                OriginalStatisticMaterial.Add(new List<decimal> { begin, end }, X_i);
                 decimal center = Convert.ToDecimal(((end + begin) / 2).ToString("F2"));
                 FrequencyTable.Add(Convert.ToDouble(center) , X_i);
                 begin = end;
-                end += interval;
+                end += Interval;
             }
         }
 
+        public void GetDiffernceBetweenCenters()
+        {
+            var ls = FrequencyTable.Keys.ToList();
+            DifferenceBetweenCentres = Convert.ToDecimal(ls[1]) - Convert.ToDecimal(ls[0]);
+        }
 
+        public void FormWeight()
+        {
+            decimal sum = FrequencyTable.Values.Sum();
+
+            foreach(var i in FrequencyTable.Values)
+            {
+                WeightOfInterval.Add(i / sum);
+            }
+        }
 
         public void ShowVariantionRange()
         {

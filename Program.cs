@@ -26,22 +26,22 @@ namespace tims_calculation
 
 
 
-            Console.WriteLine("Choose Variable, type D for Descrete and I for Interval");
-            var chose = Console.ReadKey();
-            Console.WriteLine("If you want to read from file press F or press G if u want to do it randomly");
-            var way = Console.ReadKey();
-            if (chose.Key.ToString().ToUpper() == "D" && way.Key.ToString().ToUpper() == "G")
-            {
-                UI.StartUI(EnumVariables.DescretVariable, WayOfCreation.GenerateRandomly);
-            }
-            else if (chose.Key.ToString().ToUpper() == "D" && way.Key.ToString().ToUpper() == "F")
-            {
-                UI.StartUI(EnumVariables.DescretVariable, WayOfCreation.FromFile);
-            }
-            else
-            {
-                UI.StartUI(EnumVariables.IntervalVariable, WayOfCreation.GenerateRandomly);
-            }
+            //Console.WriteLine("Choose Variable, type D for Descrete and I for Interval");
+            //var chose = Console.ReadKey();
+            //Console.WriteLine("If you want to read from file press F or press G if u want to do it randomly");
+            //var way = Console.ReadKey();
+            //if (chose.Key.ToString().ToUpper() == "D" && way.Key.ToString().ToUpper() == "G")
+            //{
+            //    UI.StartUI(EnumVariables.DescretVariable, WayOfCreation.GenerateRandomly);
+            //}
+            //else if (chose.Key.ToString().ToUpper() == "D" && way.Key.ToString().ToUpper() == "F")
+            //{
+            //    UI.StartUI(EnumVariables.DescretVariable, WayOfCreation.FromFile);
+            //}
+            //else
+            //{
+            //    UI.StartUI(EnumVariables.IntervalVariable, WayOfCreation.GenerateRandomly);
+            //}
 
 
             // DescreteVariable v = new DescreteVariable();
@@ -49,12 +49,13 @@ namespace tims_calculation
             ////v.FromTableToVariationRange();
             //v.GenerateSample(0,5,10);
             ////List<double> ls = new List<double> {8,7,6,9,10,9,11,8,9,10,8,9,6,9,8,10,7,10,12,7 };
-            //// IntervalVariable inter = new IntervalVariable();
-            ////inter.ReadFromFile();
+             IntervalVariable inter = new IntervalVariable();
+            inter.ReadFromFile();
+            UI.PrintStatis(inter);
             ////inter.FindRozmah();
             ////inter.GenerateSample(0,20,50);
             ////inter.FormFrequencyTable();
-
+            //NumericalCharacteristics.Median(inter);
             //// = NumericalCharacteristics.Mode(inter.FrequencyTable);
 
             ////v.GenerateSample(0, 10, 5000000);
