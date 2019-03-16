@@ -14,7 +14,7 @@ namespace tims_calculation
         public List<List<decimal>> Intervals { get; set; } = new List<List<decimal>>();
         public decimal Interval { get; set; }
         public List<decimal> WeightOfInterval { get; set; } = new List<decimal>();
-        //public List<List<decimal>> OriginIntervals { get; set; } = new List<List<decimal>>(); 
+        
         public Dictionary<List<decimal>, int> OriginalStatisticMaterial { get; set; } = new Dictionary<List<decimal>, int>();
 
         public override void ReadFromFile()
@@ -35,9 +35,14 @@ namespace tims_calculation
 
             }
 
+
             M_i = lines[1].Split(' ').Select(item => Convert.ToInt32(item)).ToList();
 
-            FrequencyTable = Z_i.Zip(M_i, (k, v) => new List<double> { k,v} ).ToDictionary((key) => key[0], (value) => Convert.ToInt32(value[1]));
+            OriginalStatisticMaterial = Intervals.Zip(M_i, (k, v) => new List<object> { k, v })
+                .ToDictionary((key)=> (List<decimal>)key[0], (value) => Convert.ToInt32(value[1])); 
+            
+            FrequencyTable = Z_i.Zip(M_i, (k, v) => new List<double> { k,v} )
+                .ToDictionary((key) => key[0], (value) => Convert.ToInt32(value[1]));
             
             FromTableToVariationRange();
             FindRozmah();
@@ -91,20 +96,64 @@ namespace tims_calculation
             }
         }
 
-        public void GetDiffernceBetweenCenters()
-        {
-            var ls = FrequencyTable.Keys.ToList();
-            DifferenceBetweenCentres = Convert.ToDecimal(ls[1]) - Convert.ToDecimal(ls[0]);
-        }
+        //public void GetDiffernceBetweenCenters()
+        //{
+        //    var ls = FrequencyTable.Keys.ToList();
+        //    DifferenceBetweenCentres = Convert.ToDecimal(ls[1]) - Convert.ToDecimal(ls[0]);
+        //}
 
         public void FormWeight()
         {
             decimal sum = FrequencyTable.Values.Sum();
-
+            WeightOfInterval.Add(0);
             foreach(var i in FrequencyTable.Values)
             {
                 WeightOfInterval.Add(i / sum);
             }
+        }
+
+        public List<string> ShowEmpiricalCDF(out List<string> expr )
+        {
+            expr = new List<string>();
+            List<string> result = new List<string>();
+            if (WeightOfInterval.Count == 0)
+            {
+                FormWeight();
+            }
+           
+            result.Add($" 0  x<= {OriginalStatisticMaterial.Keys.First().First()}");
+
+            var intervals = OriginalStatisticMaterial.Keys.ToList();
+            
+            for(int i = 0; i < intervals.Count; i++)
+            {
+                expr.Add($"{WeightOfInterval[i + 1] / (intervals[i][1] - intervals[i][0])} (x - {intervals[i][0]}) + {WeightOfInterval[i]}");
+                result.Add($"{WeightOfInterval[i + 1] / (intervals[i][1] - intervals[i][0])} (x - {intervals[i][0]}) + {WeightOfInterval[i]}    :    {intervals[i][0]} < x <= {intervals[i][1]}");
+            }
+            result.Add($"1    :    x > {intervals.Last()[1]}");
+            return result;
+
+        }
+
+        public string PackParametrsToPython(out string result,out string x_axis)
+        {
+            result = "";
+            x_axis = "";
+            List<string> expr;
+            var ecdf = ShowEmpiricalCDF(out expr);
+            foreach(var item in ecdf)
+            {
+                result += item + "|";
+            }
+
+            foreach (KeyValuePair<double, int> keyValue in FrequencyTable)
+            {
+                x_axis += keyValue.Key.ToString("F") + "|";
+                //y_axis += keyValue.Value.ToString("F") + "|";
+
+            }
+
+            return result;
         }
 
         public void ShowVariantionRange()

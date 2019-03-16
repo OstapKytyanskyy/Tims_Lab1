@@ -60,5 +60,20 @@ namespace tims_calculation
             }
         }
 
+        public void ShowEmpericalCDF()
+        {
+            var x_i = VariationRange.Distinct().ToList();
+            Console.WriteLine($"0\t x < {x_i[0]}");
+
+            int i = 0, j = 1 ;
+            while(i < x_i.Count && j < x_i.Count)
+            {
+                Console.WriteLine($"{EmpCDFValues[i]} \t {x_i[i]} <= x < {x_i[j]}");
+                ++i;
+                ++j;
+            }
+            Console.WriteLine($"{1} \t  x >= {x_i[i]}");
+        }
+
     }
 }

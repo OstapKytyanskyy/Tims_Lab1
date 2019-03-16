@@ -115,16 +115,27 @@ namespace tims_calculation
         {
             int centerOfN = intervar.FrequencyTable.Values.Sum() / 2;
             List<decimal> difference;
-            var MedianInterval = intervar.Intervals.Where(item => item[0] <= centerOfN && centerOfN <= item[1]).Select(item =>(item[0] + item[1])/2).ToList();
-            var beginOfInterval = BeginOfInterval(intervar, MedianInterval[0], out difference);
-            decimal Sme_1 = 0;
-            if (intervar.FrequencyTable.ContainsKey(Convert.ToDouble(MedianInterval[0] - difference[0]) ))
+            //var MedianInterval = intervar.Intervals.Where(item => item[0] <= centerOfN && centerOfN <= item[1]).Select(item =>(item[0] + item[1])/2).ToList();
+            decimal Median = 0;
+            decimal count = 0;
+            foreach(var item in intervar.OriginalStatisticMaterial)
             {
-                Sme_1 = intervar.FrequencyTable[Convert.ToDouble(MedianInterval[0] - difference[0])];
+                count += item.Value;
+                if(count > centerOfN)
+                {
+                    Median = (item.Key[0] + item.Key[1]) / 2;
+                    break;
+                }
+            }
+            var beginOfInterval = BeginOfInterval(intervar, Median, out difference);
+            decimal Sme_1 = 0;
+            if (intervar.FrequencyTable.ContainsKey(Convert.ToDouble(Median - difference[0]) ))
+            {
+                Sme_1 = intervar.FrequencyTable[Convert.ToDouble(Median - difference[0])];
             }
            
             decimal Mediana = beginOfInterval[0] + (difference[0] *
-                ((Convert.ToDecimal(centerOfN) - Sme_1)/ intervar.FrequencyTable[Convert.ToDouble(MedianInterval[0])] ));
+                ((Convert.ToDecimal(centerOfN) - Sme_1)/ intervar.FrequencyTable[Convert.ToDouble(Median)] ));
 
             return Mediana;
         }

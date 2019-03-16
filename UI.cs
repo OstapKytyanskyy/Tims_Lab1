@@ -79,11 +79,11 @@ namespace tims_calculation
 
         public static void PlotingGraphs(string x_axis,string y_axis,string ecdf)
         {
-            Task[] tasks = new Task[3]
+            Task[] tasks = new Task[1]
                 {
-                    new Task(() => Programm.RunPython(x_axis, y_axis, ecdf, @"C:\Users\ostap\PycharmProjects\tims\main.py")),
-                    new Task(() => Programm.RunPython(x_axis, y_axis, ecdf, @"C:\Users\ostap\PycharmProjects\tims\poligon.py")),
-                    new Task(() => Programm.RunPython(x_axis, y_axis, ecdf, @"C:\Users\ostap\PycharmProjects\tims\ECDF.py"))
+                    //new Task(() => Programm.RunPython(x_axis:x_axis,y_axis : y_axis,ecdf_discrete: ecdf,Path: @"C:\Users\ostap\PycharmProjects\tims\main.py")),
+                    new Task(() => Programm.RunPython(x_axis:x_axis,y_axis : y_axis,ecdf_discrete: ecdf,Path: @"C:\Users\ostap\PycharmProjects\tims\poligon.py"))
+                    //new Task(() => Programm.RunPython(x_axis:x_axis,y_axis : y_axis,ecdf_discrete: ecdf,Path: @"C:\Users\ostap\PycharmProjects\tims\ecdf_discrete.py"))
                 };
 
             foreach (var t in tasks)

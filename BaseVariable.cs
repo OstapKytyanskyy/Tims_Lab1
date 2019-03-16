@@ -50,6 +50,23 @@ namespace tims_calculation
 
         }
 
+        public void ShowFrequencyTable()
+        {
+            if (FrequencyTable == null)
+            {
+                return;
+            }
+            foreach(double keyValue in FrequencyTable.Keys )
+            {
+                Console.Write($"{keyValue}\t|");
+            }
+            Console.WriteLine();
+            foreach (int keyValue in FrequencyTable.Values )
+            {
+                Console.Write($"{keyValue}\t|");
+            }
+        }
+
         public string ShowVariationRange()
         {
             string result = "";
